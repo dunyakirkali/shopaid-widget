@@ -11,6 +11,7 @@
 (function() {
     'use strict';
 
+    // var url = "https://abn-shopaid.herokuapp.com/api/v1/backdoor/record"
     var url = "http://localhost:3000/api/v1/backdoor/record";
     var buttonId = "submitcheck_payment";
     var elementExists = document.querySelector('[data-bank-id]');
