@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    var url = "http://localhost:3000/api/v1/partner/record";
+    var url = "http://localhost:3000/api/v1/backdoor/record";
     var buttonId = "submitcheck_payment";
     var elementExists = document.querySelector('[data-bank-id]');
     var checkoutButton = document.querySelector('#submitcheck_payment');
@@ -19,8 +19,9 @@
     if(elementExists) {
       console.log("Mobile");
       elementExists.onclick = function(){
-        console.log("YEAH");
-        post(url, {name: 'Johnny Bravo'});
+        var price = document.querySelector('.total .pricewrap').innerHTML.trim()
+        console.log(price);
+        post(url, { price: price });
         return false;
       };
     }
@@ -28,8 +29,8 @@
     if(checkoutButton) {
       console.log("Desktop");
       checkoutButton.onclick = function(){
-        console.log("YEAH");
-        post(url, {name: 'Johnny Bravo'});
+        var price = document.querySelector('.total .pricewrap').innerHTML.trim()
+        post(url, { price: price });
         return false;
       };
     }
