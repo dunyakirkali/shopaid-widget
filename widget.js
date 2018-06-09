@@ -11,14 +11,25 @@
 (function() {
     'use strict';
 
+    var url = "http://localhost:3000/api/v1/partner/record";
     var buttonId = "submitcheck_payment";
     var elementExists = document.querySelector('[data-bank-id]');
+    var checkoutButton = document.querySelector('#submitcheck_payment');
 
     if(elementExists) {
-      console.log("HELL");
+      console.log("Mobile");
       elementExists.onclick = function(){
         console.log("YEAH");
-        // post('http://localhost:3000', {name: 'Johnny Bravo'});
+        post(url, {name: 'Johnny Bravo'});
+        return false;
+      };
+    }
+
+    if(checkoutButton) {
+      console.log("Desktop");
+      checkoutButton.onclick = function(){
+        console.log("YEAH");
+        post(url, {name: 'Johnny Bravo'});
         return false;
       };
     }
